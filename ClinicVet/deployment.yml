@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: ClinicVet
+  name: clinicvet
   labels:
-    app: ClinicVet
+    app: clinicvet
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: ClinicVet
+      app: clinicvet
   template:
     metadata:
       labels:
-        app: ClinicVet
+        app: clinicvet
     spec:
       containers:
-      - name: ClinicVet
+      - name: clinicvet
         image: clinicinsurancehealthrc.azurecr.io/clinicvet:dev
         ports:
         - containerPort: 80
@@ -23,10 +23,10 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: ClinicVet
+  name: clinicvet
 spec:
   selector:
-    app: ClinicVet
+    app: clinicvet
   ports:
     - port: 80
       targetPort: 80
